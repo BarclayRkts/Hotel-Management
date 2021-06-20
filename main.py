@@ -1,7 +1,5 @@
-import os
-import mysql.connector
-import random
-from datetime import datetime
+import backend as db
+from datetime import date
 
 
 def menu():
@@ -37,7 +35,7 @@ def managePatients():
         print("| 1. Add New Patient                           |")
         print("| 2. Delete Patient                            |")
         print("| 3. Update Details                            |")
-        choice = input("Enter choice")
+        choice = input("Enter choice: ")
 
         if(int(choice) == 1):
            newPatient()
@@ -53,10 +51,35 @@ def manageDoctors():
     pass
 
 def newPatient():
-    pass
+    print("************************************************")
+    print("| A New Patient")
+    print("************************************************")
+    id = db.getID() + 1
+    print(id)
+    firstName = input("First Name: ")
+    lastName = input("Last Name: ")
+    email = input("Email: ")
+    phone = input("Phone Number: ")
+    doctor = input("Doctor ID: ")
+    birthDate = input("Birth Date (YYYY-MM-DD): ")
+    gender = input("Gender (M,F,N): ")
+    created = date.today()
+    modified = date.today()
+
+    data = (id, firstName, lastName, email, phone, doctor, birthDate, gender, created, modified)
+    insertion = db.createPatient(data)
+
+    if insertion != 1:
+        print("Patient Successfully Created")
+    else:
+        print("Something Went Wrong! Try Agian!")
+        
+
 
 def deletePatient():
-    pass
+    print("************************************************")
+    print("| Delete Patient")
+    print("************************************************")
 
 def manageAppointments():
     pass
