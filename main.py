@@ -41,8 +41,8 @@ def managePatients():
            newPatient()
         elif(int(choice) == 2):
             deletePatient()
-        elif(int(choice) == 2):
-            deletePatient()
+        elif(int(choice) == 3):
+            updatePatient()
         else:
             print("You Entered an Invalid Choice. Try Again")
 
@@ -79,7 +79,21 @@ def deletePatient():
     print("************************************************")
     print("| Delete Patient")
     print("************************************************")
+    id = input("Enter the Patient Id of the Account to Delete: ")
+    insertion = db.removePatient(int(id))
 
+    if insertion != 1:   
+        print("************************************************")
+        print("Patient Successfully Deleted")
+        print("************************************************")
+    else:
+        print("Something Went Wrong! Try Agian!")
+
+
+def updatePatient():
+    pass
+
+    # print("This is the prevID: ", db.getID())
 def manageAppointments():
     pass
 

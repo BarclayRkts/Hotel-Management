@@ -22,3 +22,11 @@ def getID():
     mycursor = mydb.cursor()
     id = mycursor.lastrowid
     return id
+
+def removePatient(data):
+    mycursor = mydb.cursor()
+    try:
+        mycursor.execute("DELETE FROM Patients WHERE PatientId = %s", (data,))
+        mydb.commit()
+    except Exception as e:
+        print(e)
