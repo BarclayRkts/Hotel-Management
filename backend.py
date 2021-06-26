@@ -1,6 +1,5 @@
 import os
 import mysql.connector
-from mysql.connector.cursor import MySQLCursor
 
 mydb = mysql.connector.connect(
     host="localhost",
@@ -23,4 +22,3 @@ def getID():
     mycursor = mydb.cursor()
     id = mycursor.lastrowid
     return id
-

@@ -1,6 +1,6 @@
 import backend as db
 from datetime import date
-
+import random
 
 def menu():
 
@@ -54,8 +54,7 @@ def newPatient():
     print("************************************************")
     print("| A New Patient")
     print("************************************************")
-    id = db.getID() + 1
-    print(id)
+    id = random.randint(0, 1000000)
     firstName = input("First Name: ")
     lastName = input("Last Name: ")
     email = input("Email: ")
